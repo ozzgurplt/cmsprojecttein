@@ -13,41 +13,42 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-
-
-    @GetMapping("/")
+    @GetMapping("/admin/listEmploye")
     public String viewHomePage(Model model){
         model.addAttribute("listEmployee",employeeService.getAllEmployees());
-        return "index";
+        return "list_employee";
     }
 
 
-
-    @GetMapping("/showNewEmployeeForm")
+    @GetMapping("/user/showNewEmployeeForm")
     public String showNewEmployeeForm(Model model){
         Employee employee = new Employee();
         model.addAttribute("employee",employee);
         return "new_employee";
     }
 
-    @PostMapping("/saveEmployee")
+    @PostMapping("/user/saveEmployee")
     public String saveEmployee(@ModelAttribute("employee")Employee employee){
         employeeService.saveEmployee(employee);
         return "redirect:/";
     }
-    @GetMapping("/showFormForUpdate/{id}")
+    @GetMapping("/user/showFormForUpdate/{id}")
     public String showFormForUpdate(@PathVariable( value = "id") long id, Model model){
         Employee employee = employeeService.getEmployeeById(id);
         model.addAttribute("employee", employee);
         return "update_employee";
     }
 
-    @GetMapping("/deleteEmployee/{id}")
+    @GetMapping("/user/deleteEmployee/{id}")
     public String deleteEmployee(@PathVariable (value = "id") long id) {
 
         // call delete employee method
         this.employeeService.deleteEmployeeById(id);
-        return "redirect:/";
+        return "redirect:/admin/listEmploye";
+    }
+    @GetMapping("/not-auth")
+    public String getAccessDenied() {
+        return "/not-auth";
     }
 
 

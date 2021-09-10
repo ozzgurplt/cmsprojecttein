@@ -14,13 +14,13 @@
     <hr>
     <h2>YENİ CV</h2>
 
-    <form action="#" th:action="@{/saveEmployee}" th:object="${employee}"
+    <form action="#" th:action="@{/user/saveEmployee}" th:object="${employee}"
           method="POST">
         <input type="text" th:field="*{name}"
                placeholder="Ad-Soyad Giriniz" class="form-control mb-4 col-4">
 
         <input type="text" th:field="*{school}"
-               placeholder="Mezun olduğunuz okulu giriniz" class="form-control mb-4 col-4">
+               placeholder="Mezun olduğunuz son okulu giriniz" class="form-control mb-4 col-4">
 
         <input type="text" th:field="*{skills}"
                placeholder="Yeteneklerinizi Giriniz" class="form-control mb-4 col-4">
@@ -36,7 +36,7 @@
 
     <hr>
 
-    <a th:href = "@{/}"> LİSTEYE DÖN</a>
+    <a th:href = "@{/admin/}"> LİSTEYE DÖN</a>
 </div>
 </body>
 </html>

@@ -11,35 +11,15 @@
 <body>
 
 <div class="container my-2">
-  <h1>CV LİSTESİ</h1>
-  <a th:href="@{/showNewEmployeeForm}" class="btn btn-primary btn -sm mb-3">YENİ BİR CV YÜKLE</a>
-  <table border="2" class="table table-striped table-responsive-md">
-    <thead>
-    <tr>
-      <th>AD SOYAD</th>
-      <th>OKUL BİLGİSİ</th>
-      <th>YETENEKLER</th>
-      <th>HOBİLER</th>
-      <th>DENEYİM</th>
-      <th>Action</th>
+  <h1 class="center">TEIN YAZILIM İNSAN KAYNAKLARI SİSTEMİ</h1>
+
+  <img src="https://www.eniyisozler.net/Html-images/Bayraklar/bayrak-9.png" alt="HTML Türk Bayrağı Kodları" border="0"></a>
 
 
-    </tr>
+  <a th:href="@{/user/showNewEmployeeForm}" class="btn btn-primary btn -sm mb-3">YENİ BİR CV YÜKLE(KULLANICI)</a>
+  <br>
+  <a th:href="@{/admin/listEmploye}" class="btn btn-primary btn -sm mb-3">CV LİSTELE(ADMİN)</a>
 
-    </thead>
-    <tbody>
-    <tr th:each="employee:${listEmployee}">
-      <td th:text="${employee.name}"></td>
-      <td th:text="${employee.school}"></td>
-      <td th:text="${employee.skills}"></td>
-      <td th:text="${employee.hobby}"></td>
-      <td th:text="${employee.experience}"></td>
-      <td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}" class="btn btn-primary">GÜNCELLE</a>
-        <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-danger">SİL</a>
-    </tr>
-
-    </tbody>
-  </table>
 
 </div>
 </body>

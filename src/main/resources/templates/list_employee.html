@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TEIN YAZILIM İNSAN KAYNAKLARI SİSTEMİ</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2">
+    <h1>İnsan Kaynakları CV Listesi</h1>
+    <table border="2" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Ad - Soyad</th>
+            <th>Mezun Olunan Son Okul</th>
+            <th>Yetenekler</th>
+            <th>Hobiler</th>
+            <th>Deneyimler</th>
+            <th>Düzenle</th>
+
+
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr th:each="employee:${listEmployee}">
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.school}"></td>
+            <td th:text="${employee.skills}"></td>
+            <td th:text="${employee.hobby}"></td>
+            <td th:text="${employee.experience}"></td>
+            <td> <a th:href="@{/user/showFormForUpdate/{id}(id=${employee.id})}" class="btn btn-primary">GÜNCELLE</a>
+                <a th:href="@{/user/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-danger">SİL</a>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
